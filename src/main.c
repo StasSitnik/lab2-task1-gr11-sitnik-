@@ -67,16 +67,20 @@ void nextDay(int year, int month, int day, int *nextYear, int *nextMonth, int *n
 int main() {
     int year, month, day;
     int prevYear, prevMonth, prevDay;
-    int nextYear, nextMonth, nextDay;
+    int nextYear, nextMonth, nexDay;
 
     printf("Введите год, месяц и день: ");
-    scanf("%d %d %d", &year, &month, &day);
+    printf("Введите год, месяц и день: ");
+    if (scanf("%d %d %d", &year, &month, &day) != 3) {
+        printf("Ошибка ввода. Пожалуйста, введите три числа.\n");
+        return 1; 
+    }
 
     previousDay(year, month, day, &prevYear, &prevMonth, &prevDay);
     printf("Предыдущий день: %d-%02d-%02d\n", prevYear, prevMonth, prevDay);
 
-    nextDay(year, month, day, &nextYear, &nextMonth, &nextDay);
-    printf("Следующий день: %d-%02d-%02d\n", nextYear, nextMonth, nextDay);
+    nextDay(year, month, day, &nextYear, &nextMonth, &nexDay);
+    printf("Следующий день: %d-%02d-%02d\n", nextYear, nextMonth, nexDay);
 
     return 0;
 }
