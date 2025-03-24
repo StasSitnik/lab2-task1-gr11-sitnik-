@@ -44,3 +44,22 @@ void previousDay(int year, int month, int day, int *prevYear, int *prevMonth, in
     }
 }
 
+//Функция для определения следующего дня.
+
+void nextDay(int year, int month, int day, int *nextYear, int *nextMonth, int *nextDay) {
+    if (day < daysIonth(year, month)) {
+        *nextYear = year;
+        *nextMonth = month;
+        *nextDay = day + 1;
+    } else {
+        if (month < 12) {
+            *nextMonth = month + 1;
+            *nextYear = year;
+            *nextDay = 1;
+        } else {
+            *nextMonth = 1;
+            *nextYear = year + 1;
+            *nextDay = 1;
+        }
+    }
+}
