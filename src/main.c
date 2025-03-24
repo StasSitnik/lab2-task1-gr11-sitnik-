@@ -1,8 +1,10 @@
-/* hello.c */
+// Ситник Станислав
+// Этот файл содержит функции для определения предыдущего и следующего дня
+// по заданным году, месяцу и числу
+
 #include <stdio.h>
 
-void main (void)
-{
-	printf ("Hello World\n");
-	printf ("Goodbye World\n");
+// Функция для определения, является ли год високосным
+int isVisYear(int year) {
+    return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 }
