@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 // Функция для определения, является ли год високосным
+
 int isVisYear(int year) {
     return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 }
@@ -22,3 +23,24 @@ int daysMonth(int year, int month) {
         return 0; 
     }
 }
+
+//Функция для определения предыдущего дня.
+
+void previousDay(int year, int month, int day, int *prevYear, int *prevMonth, int *prevDay) {
+    if (day > 1) {
+        *prevYear = year;
+        *prevMonth = month;
+        *prevDay = day - 1;
+    } else {
+        if (month > 1) {
+            *prevMonth = month - 1;
+            *prevYear = year;
+            *prevDay = daysMonth(year, *prevMonth);
+        } else {
+            *prevMonth = 12;
+            *prevYear = year - 1;
+            *prevDay = daysMonth(*prevYear, *prevMonth);
+        }
+    }
+}
+
