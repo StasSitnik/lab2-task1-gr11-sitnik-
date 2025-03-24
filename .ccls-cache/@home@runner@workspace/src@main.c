@@ -47,7 +47,7 @@ void previousDay(int year, int month, int day, int *prevYear, int *prevMonth, in
 //Функция для определения следующего дня.
 
 void nextDay(int year, int month, int day, int *nextYear, int *nextMonth, int *nextDay) {
-    if (day < daysIonth(year, month)) {
+    if (day < daysMonth(year, month)) {
         *nextYear = year;
         *nextMonth = month;
         *nextDay = day + 1;
@@ -62,4 +62,21 @@ void nextDay(int year, int month, int day, int *nextYear, int *nextMonth, int *n
             *nextDay = 1;
         }
     }
+}
+
+int main() {
+    int year, month, day;
+    int prevYear, prevMonth, prevDay;
+    int nextYear, nextMonth, nextDay;
+
+    printf("Введите год, месяц и день: ");
+    scanf("%d %d %d", &year, &month, &day);
+
+    previousDay(year, month, day, &prevYear, &prevMonth, &prevDay);
+    printf("Предыдущий день: %d-%02d-%02d\n", prevYear, prevMonth, prevDay);
+
+    nextDay(year, month, day, &nextYear, &nextMonth, &nextDay);
+    printf("Следующий день: %d-%02d-%02d\n", nextYear, nextMonth, nextDay);
+
+    return 0;
 }
